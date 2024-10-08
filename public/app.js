@@ -93,6 +93,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // When window size changes, readjust image and light source position
     window.addEventListener('resize', () => {
+        const computedStyle = window.getComputedStyle(lightingEffectCanvas);
+        const width = parseFloat(computedStyle.width);
+        const height = parseFloat(computedStyle.height);
+        normalMapImage.style.width = width + 'px';
+        normalMapImage.style.height = height + 'px';
         if (normalMapImage.src) {
             const rect = normalMapImage.getBoundingClientRect();
             imageLongerSide = Math.max(rect.width, rect.height);
