@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Relight</title>
+    <link rel="stylesheet/less" type="text/css" href="styles.less">
+    <script src="https://cdn.jsdelivr.net/npm/less@4.1.1"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/21.6.16/i18next.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>
+            <i class="fas fa-lightbulb fa-glow"></i>
+            <span data-i18n="title">Relight</span>
+        </h1>
+        <h2 data-i18n="subtitle">Relight your photos & drawings in seconds</h2>
+    </header>
+    <div class="main-container">
+        <div class="upload-container" id="dropZone">
+            <p id="uploadHint" data-i18n="uploadHint">Click or drag to upload image</p>
+            <input type="file" id="fileInput" accept="image/*">
+        </div>
+        <div id="imageContainer">
+            <div id="imageHint" data-i18n="imageHint">
+                Hold Ctrl to hide the light source
+            </div>
+            <img id="normalMapImage" alt="Normal Map">
+            <canvas id="lightingEffectCanvas"></canvas>
+            <div id="actionContainer">
+                <select id="languageSelector">
+                    <option value="ar">العربية</option>
+                    <option value="zh-CN">简体中文</option>
+                    <option value="zh-TW">繁體中文</option>
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="it">Italiano</option>
+                    <option value="ja">日本語</option>
+                    <option value="ko">한국어</option>
+                    <option value="pt">Português</option>
+                    <option value="ru">Русский</option>
+                </select>
+                <button id="downloadBtn" class="icon-button">
+                    <i class="fa-sharp fa-solid fa-download"></i>
+                </button>
+            </div>
+        </div>
+        <div id="controlPanel">
+            <div class="control-group">
+                <div style="display: flex; justify-content: space-between;">
+                    <label for="lightColor" id="lightColorLabel">
+                        <i class="fas fa-palette"></i>
+                        <span data-i18n="lightColor">Light Color</span>
+                    </label>
+                </div>
+                <input type="color" id="lightColor" value="#ffffff">
+            </div>
+            <div class="control-group">
+                <div style="display: flex; justify-content: space-between;">
+                    <label for="lightPower" id="lightPowerLabel">
+                        <i class="fas fa-bolt"></i>
+                        <span data-i18n="lightPower">Light Power</span>
+                    </label>
+                    <span id="lightPowerValue">50%</span>
+                </div>
+                <input type="range" id="lightPower" min="0" max="100" value="30">
+            </div>
+            <div class="control-group">
+                <div style="display: flex; justify-content: space-between;">
+                    <label for="lightDistance" id="lightDistanceLabel">
+                        <i class="fas fa-arrows-up-down"></i>
+                        <span data-i18n="lightDistance">Light Depth</span>
+                    </label>
+                    <span id="lightDistanceValue">0</span>
+                </div>
+                <input type="range" id="lightDistance" min="-100" max="100" value="60">
+            </div>
+            <div class="control-group">
+                <div style="display: flex; justify-content: space-between;">
+                    <label for="lightRadius" id="lightRadiusLabel">
+                        <i class="fas fa-circle-notch"></i>
+                        <span data-i18n="lightRadius">Light Radius</span>
+                    </label>
+                    <span id="lightRadiusValue">50%</span>
+                </div>
+                <input type="range" id="lightRadius" min="1" max="120" value="60">
+            </div>
+            <div class="control-group">
+                <div style="display: flex; justify-content: space-between;">
+                    <label for="lightAperture" id="lightApertureLabel">
+                        <i class="fas fa-dot-circle"></i>
+                        <span data-i18n="lightAperture">光圈</span>
+                    </label>
+                    <span id="lightApertureValue">f/8.0</span>
+                </div>
+                <input type="range" id="lightAperture" min="14" max="190" value="80" step="2">
+            </div>
+        </div>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
